@@ -1,0 +1,19 @@
+pom.xml
+-의존성 추가
+
+web.xml
+-파일 업로드 설정 추가
+
+servlet-context.xml
+- v파일 업로드 <bean> 추가
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"></beans:bean>
+	
+단일 파일 업로드
+-DB(X)
+- 컨트롤러 생성 
+
+다중 파일 업로드
+-DB(o)
+
+
+webapp - resources - files

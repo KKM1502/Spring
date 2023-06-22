@@ -1,0 +1,243 @@
+Spring
+-1주 : 수업만
+-2주 : 수업만 + 후반부 오후(프로젝트 시작)
+-3주 : 오전 수업 + 오후 프로젝트
+-4주 : 프로젝트
+
+잡코리아 , 사람인 ~ 
+- 자바 개발자, 웹 개발자 ,응용 프로그램 개발, 
+
+
+Servlet/JSP : 초반(쉬움) > 후반(어려움)
+
+
+Spring :  후반(어려움) > 초반(쉬움) >> 프레임워크
+
+Spring FrameWork 틀 
+
+-http://spring.io
+-Spring 1.0~ 6.0
+-Spring 3.XX ~ 5.XX > Spring 5.XX 수업
+- 자바 플랫폼을 위한 오픈 소스 애플리케이션 프레임워크이다.
+- 콘솔 프로그램 or 응용프로그램 or 웹 응용 프로그램 등등 
+- 거의 대부분 웹 응용 프로그램을 만드는데에 쓰인다 .
+- Servlet/JSP > 버전업
+
+- 전자 정부 표준 프레임워크로 채택 > Spring > 공공기관 프로젝트
+- 스프링 프로젝트
+- 조합
+-  Spring MVC
+- Spring AOP
+- Spring Data
+- Spring Boot
+- SPring Security
+
+스프링 프레임워크 구성 요소(주요 기술)
+
+1.POJO 기반 - 아무런 꾸밈 없는 순수한 자바스크립트
+2.의존성 주입 지원
+3. 관점 지향 프로그래밍 지원
+4. Spring MVC
+5. 레이아웃 지원
+6. 데이터베이스 연동 지원	
+  - JDBC
+ - Spring JDBC
+ - ORM(JPA)
+ - MyBatis
+
+개발 환경
+-OpenJDK 11(X) > Oracle JDK 11(O)
+-1.Eclipse 사용 > 손이 많이 감 
+-2.Eclipse + 확장 프로그램(STS) > 간편
+-3.STS(+Eclipse)  > 간편
+
+JAVA_HOME > C:\Program Files\Java\jdk-11\jdk-11.0.1
+
+sts-bundlle
+-sts-3.9.18.RELEASE > STS(이클립스)
+-pivotal-tc-server > 서버(톰캣같은..)
+
+STS.ini
+-vmargs 상단에 입력
+vm
+C:\Program Files\Java\jdk-11\bin\javaw.exe
+
+cmd > 롬북 실행 후 경로 잡아주기 sts폴더로
+
+워크 스페이스 폴더 생성 > Tomcat version 9 > 서버 잡아주기 
+
+스프링 구성요소
+-DI
+-AOP
+
+프로젝트 생성하기
+-New > Spring Legacy Project > Spring MVC Project 
+
+1. src/main/java
+	- 여태까지 사용하던 Java 소스폴더
+
+2. src.main/resources
+	- Java 소스 이외의 자원 보관하는 폴더
+	- 주로 스프링 설정 파일들을 보관
+	
+3. src/test/java
+	- 테스트용
+	
+4. src/test/resourcees
+	- 테스트용
+
+5. JRE System Library
+	- JRE jar 
+	- JavaSE-1.6 > JDK 1.6
+
+6. Maven Dependencies
+	- 메이븐(빌드 도구, 라이브러리 관리 도구 등...)
+	- 프로젝트 생성 , 유지 관리 , 배포를 도와주는 프로그램
+	- 수업용 > jar파일 관리 용도
+7. src
+	-1~4번까지의 폴더를 물리적으로 표현 > 윈도우 탐색기처럼 표시
+	
+	7.1 webapp
+		-웹 루트폴더
+		
+	7.2 webapp > resources
+		-css , js, images 등을 저장하는 폴더
+		- 권장
+		
+	7.3 webapp > web-inf
+		7.3.1 classes 
+			-컴파일된 클래스 파일 저장(이전에는 bin이라는 폴더가 만들어줬었음)
+			
+		7.3.2 spring(******)
+			-스프링의 모든 설정
+			
+			7.3.2.1 appServlet
+				-servlet-context.xml: 스프링 설정 파일(스프링 MVC관련, 웹 관련)
+				
+			7.3.2.2 root-context.xml: 스프링 설정 파일(스프링 전반)
+		
+		7.3.3 views
+			- 뷰 페이지 폴더
+		
+		7.3.4 web.xml
+			- 아파치 톰캣 서버 설정
+	
+	7.4 pom.xml, Project Object Model
+		-메이블 프로그램 설정 파일		
+
+	- 1~4번까지의 폴더를 물리적으로 표현 > 윈도우 탐색기처럼 표시
+	
+	
+	변경 확인 --maven > update project
+	
+	C:\Users\user\.m2\repository >> 메이븐이 다운로드한 jar파일을 보관하는 폴더
+	
+
+DI, AOP > 스프링 기술(X)
+
+Spring DI
+- DI: 디자인패턴
+- Dependency Injection
+- 의존(성) 주입
+- 스프링에서 중요한 개념 > 스프링의 모든 객체 관리에 사용
+- 프로그래밍에서 구성 요서간의 의존 관계가 소스 내부가 아닌 외부 환경에서 정의되게 하는 디자인 패턴	
+
+의존 관계?
+- src/main/java > "com.test.di01"
+				> "Main.java"
+				> "Hong.java"
+				> "Pen.java"
+				
+				>"Lee.java"
+				>"Bursh.java"
+				
+- src/test/java	> "com.test.di03"
+ 				
+				
+Spring AOP, Aspect Oriented Programming
+- 관점 지향 프로그래밍
+- 관점, 관심사 > 코드를 작성하는데 필요한 주 업무가 아닌 나머지 신경써서 해야 하는 보조업무
+- 핵심 업무는 아니지만, 코드를 완성하기 위한 나머지 필요한 업무들
+- Concern > 관심사, 관점 
+
+[게시판 글쓰기]
+1.기존 방식
+	-Add.do
+		a. 글쓰기
+		b. 권한 체크
+	-주업무와 보조업무를 같은 곳에서 구현(한 파일에서 구현)
+2. AOP 방식
+	-Add.do
+	-주업무와 보조업무를 분리시켜서 따로 구현
+	-스프링을 통해 주업무와 보조업무를 다시 결합 후 동작
+	
+Spring AOP 용어
+
+1. Core Concern
+	-비즈니스 코드, 주업무
+	
+2. Cross-cutting Concern
+	-보조업무
+	
+3. Target
+	-순수한 비즈니스 로직(주업무)
+	-메소드
+	
+4. Proxy
+	-Tagret을 감싸고 있는 객체
+	
+5. JoinPoint
+	- Target이 가진 메소드(주업무)
+
+6. Pointcut
+	- 보조 업무와 어떤 JoinPoint에 연결하는 작업
+
+7. Aspect
+	- 보조업무를 구현하는 객체
+
+8. Advice
+	- 주 업무가 실행되는 어느 시점에서 보조 업무를 시행할지?
+	
+	<주로사용>
+	- Before Advice
+		- 주 업무가 실행되기 전에 보조업무를 실행
+		
+	- After Advice
+		- 주 업무가 종료된 후에 보조업무를 실행
+		- 주 업무의 성공  유무와 상관없이 실행
+	
+	- Around Advice
+		- 주 업무 실행 전후에 보조업무를 실행
+	<주로 사용>
+	
+	- After-returning Advice
+		-After Advice와 유사
+		-주 업무가 성공했을 때만 실행
+	
+	- After-throwing Advice
+		-예외가 발생했을 때만 실행
+		
+		
+ XML 방식
+ 
+ - "com.test.aop1" 패키지 생성
+ 				> "Main.java"	
+ 				> "Memo.java"(I)
+ 				> "MemoImpl.java"(C)
+ 				
+ 				> "Logger.java"(C)
+ 				
+ 				>"memo.xml"		
+		
+		
+IoC ,Inversion of Control
+- 역제어
+
+객체 생성 순서
+- 기존 방식
+	-BoardController > BoardService > BoardDAO
+- 의존 주입
+	- 기존 방식에서 오브젝트가 만들어지는 순서를 거꾸로! (DI 를 구현하면 시행된다.)
+
+
+

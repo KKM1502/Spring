@@ -1,0 +1,19 @@
+Tiles
+- 레이아웃 프레임워크
+- 페이지 레이아웃 구성하고 관리하는 기술
+- <@include files = ""> 
+
+
+
+구현 기능
+- 메인(index.do)
+
+- 회원
+	-회원정보(memeber/info.do)
+	-활동내역(member/history.do)
+	-즐겨찾기(member/favorite.do)
+
+- 관리자
+	-로그(admin/log.do)
+	-환경설정(admin/setting.do)
+

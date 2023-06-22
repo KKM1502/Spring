@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis">
+	
+	<insert id="m1">
+
+		insert into tblMyBatis (seq, name, age, address, gender)
+			values (seqMyBatis.nextVal, '호호호', 28, '서울시 서대문구', 'm')
+		
+	</insert>
+	
+	<insert id="add" parameterType="com.test.domain.MyBatisDTO"> 
+
+		insert into tblMyBatis (seq, name, age, address, gender)
+			values (seqMyBatis.nextVal, #{name}, #{age}, #{address}, #{gender})
+			
+	</insert>
+	
+	<delete id="m2">
+		delete from tblMyBatis where seq = #{seq}
+	</delete>
+	
+	<update id="m3">
+		update tblMyBatis set name= #{name}, address=#{address} where seq = #{seq}
+	</update>
+	
+	<select id="m4" resultType="Integer">
+		select count(*) from tblMyBatis
+	</select>
+	
+	<select id="m5" parameterType="String" resultType="com.test.domain.MyBatisDTO" >
+		select * from tblMyBatis where seq = ${seq}
+	</select>
+	<select id="m6"  resultType="String">
+		select name from tblMyBatis
+	</select>
+	<select id="m7" resultType="com.test.domain.MyBatisDTO">
+		select * from tblMyBatis
+	</select>
+	
+	<select id="m8" parameterType="String" resultType="Integer">
+		<!-- 
+			#{key} : 데이터 바인딩 > 문자열 전송 > '문자열'	
+			${key} : 식별자 바인딩 > 문자열 전송 > 문자열
+		
+		
+		 -->
+	
+	
+		select count(*) from ${table}
+	</select>
+	<select id="m9" parameterType="Integer" resultType="com.test.domain.MyBatisDTO">
+		select * from tblMyBatis 
+		<![CDATA[
+		where age < #{age}
+		]]>
+	</select>
+	<select id="m10" parameterType="String" resultType="com.test.domain.MyBatisDTO">
+		select * from tblMyBatis 
+		<![CDATA[
+		where address like '%#{word}%'
+		]]>
+	</select>
+	
+	<insert id="m11" parameterType="com.test.domain.MyBatisDTO"> 
+		
+		<selectKey keyProperty="seq" order="BEFORE" resultType="String">
+			select seqMyBatis.nextVal from dual
+		</selectKey>
+
+		insert into tblMyBatis (seq, name, age, address, gender)
+			values (#{seq}, #{name}, #{age}, #{address}, #{gender})
+		
+	</insert>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+MyBatis(iBatis)
+- 영속성 계층(데이터베이스 조작 기술)
+- JDBC 역할과 동일
+- 응용 프로그램 <->JDBC 데이터베이스
+- 응용프로그램 <->Mybatis 데이터베이스
+- JDBC 기반 > 관리, 생산성 향상
+
+
+MyBatis를 스프링에 적용하는 방법
+1.XML 매퍼를 사용하는 방법
+2. 인터페이스 매퍼를 사용하는 방법
+
+
+JDBC 연결 테스트
+
+
+
+
+Connection 객체들 따로 관리
+-Connection 객체들을 미리 여러개 생성(10개)
+-모두 DB 연결(open)
+-사용자가 요청 시 1개씩 꺼내서 제공
+-사용자가 사용 종료 > 제공했던 Connection 객체 회수
+
+Connection Pool, 커넥션풀
+-Commons DBCP
+- Tomcat DBCP
+
+
+-HikariCP > 스프링 부트 2.0부터 기본 적용
+
+	pom.xml > 
+		<dependency>
+	          <groupId>com.zaxxer</groupId>
+	          <artifactId>HikariCP</artifactId>
+	          <version>2.7.4</version>
+	      </dependency>
+	
+	rootContext >
+		<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+	      <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+	      <property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe"></property> 
+	      <property name="username" value="team"></property>
+	      <property name="password" value="java1234"></property>
+	   	</bean>
+		<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+	      <constructor-arg ref="hikariConfig"></constructor-arg>
+	   </bean>
+	   
+	MyBatis 설정
+	- pom.xml > 의존추가 4개ㅐ
+	- root-context.xml > 설정
+
+
+
+

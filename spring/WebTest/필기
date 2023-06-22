@@ -1,0 +1,18 @@
+Spring MVC
+- 스프링 기반 MVC 웹 프로젝트 구현
+
+스프링 컨트롤러 (기본 서블릿)의 이름을 XXXController라고 짓는다.
+
+패키지
+- "com.test.controller" > Ex01Controller.java
+
+views > "ex01.jsp"
+
+
+1.DI(XML, Annotation)
+2.AOP(XML, Annotation)
+3. Spring MVC > 웹 기반
+	3.1 Controller
+	3.2 파라미터 전송
+	3.3 컨트롤러 반환값
+	3.4 사용자 예외 처리 
