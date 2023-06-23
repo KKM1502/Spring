@@ -1,0 +1,24 @@
+★ Socket
+- 네트워크상에서 호스트간의 통신하는 규약(약속) - 인터페이스
+- 여러 언어들이 Socket 구현 > 클래스 or 객체 제공
+■ 웹통신, Ajax 통신 <-> 소켓 통신
+- 단방향 통신(편지) <-> 양방향 통신(전화)
+■ WebSocket
+- HTML5
+- JavaScript에서 소켓 통신 지원
+- Spring -> WebSocket을 지원하는 API 제공
+
+
+
+알림 서비스
+- 관리자가 접속자에게 공지 구현 > 알림 표시 구현
+
+com.test.server > NoticeServer.java
+
+views > admin.jsp
+		> user.jsp
+
+
+JavaScript 날짜시간 라이브러리
+-> moment.js
+-> day.js
